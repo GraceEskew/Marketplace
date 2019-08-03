@@ -12,10 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.transaction.Transactional;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
 
@@ -38,8 +36,8 @@ public class accessoriesDaoTest {
 
     @Before
     public void setUp() {
-        accessRepo.deleteAll();
-        manuRepo.deleteAll();
+//        accessRepo.deleteAll();
+//        manuRepo.deleteAll();
 
         access1 = new accessories();
         access1.setAccessoriesName("Necklace");
@@ -51,7 +49,7 @@ public class accessoriesDaoTest {
         access2.setAccessoriesName("Bracelet");
         access2.setAccessoriesQuantity(20);
         access2.setAccessoriesPrice(1.99);
-        access3.setAccessoriesRating(1);
+        access2.setAccessoriesRating(2);
 
         access3 = new accessories();
         access3.setAccessoriesName("earrings");
@@ -71,31 +69,31 @@ public class accessoriesDaoTest {
         access5.setAccessoriesPrice(99.99);
         access5.setAccessoriesRating(1);
 
-        manu1.setManufacturerName("Bob's Buckets");
-        manu1.setManufacturerStreet("10 Main Street");
-        manu1.setManufacturerCity("Cityville");
-        manu1.setManufacturerState("TX");
-        manu1.setManufacturerZipCode("1110");
-        manu1.setManufacturerPhone("111-111-1111");
-        manu1.setManufacturerContact("Bob");
-
-        manu2 = new manufacturer();
-        manu2.setManufacturerName("New Age Bobbles");
-        manu2.setManufacturerStreet("11 A Street");
-        manu2.setManufacturerCity("City Town");
-        manu2.setManufacturerState("AZ");
-        manu2.setManufacturerZipCode("1100");
-        manu2.setManufacturerPhone("222-222-2222");
-        manu2.setManufacturerContact("Alice");
-
-        manu3 = new manufacturer();
-        manu3.setManufacturerName("We Make Stuff");
-        manu3.setManufacturerStreet("7001 Oceans Ave #2");
-        manu3.setManufacturerCity("City Valley");
-        manu3.setManufacturerState("CA");
-        manu3.setManufacturerZipCode("5005");
-        manu3.setManufacturerPhone("333-333-3333");
-        manu3.setManufacturerContact("Guy");
+//        manu1.setManufacturerName("Bob's Buckets");
+//        manu1.setManufacturerStreet("10 Main Street");
+//        manu1.setManufacturerCity("Cityville");
+//        manu1.setManufacturerState("TX");
+//        manu1.setManufacturerZipCode("1110");
+//        manu1.setManufacturerPhone("111-111-1111");
+//        manu1.setManufacturerContact("Bob");
+//
+//        manu2 = new manufacturer();
+//        manu2.setManufacturerName("New Age Bobbles");
+//        manu2.setManufacturerStreet("11 A Street");
+//        manu2.setManufacturerCity("City Town");
+//        manu2.setManufacturerState("AZ");
+//        manu2.setManufacturerZipCode("1100");
+//        manu2.setManufacturerPhone("222-222-2222");
+//        manu2.setManufacturerContact("Alice");
+//
+//        manu3 = new manufacturer();
+//        manu3.setManufacturerName("We Make Stuff");
+//        manu3.setManufacturerStreet("7001 Oceans Ave #2");
+//        manu3.setManufacturerCity("City Valley");
+//        manu3.setManufacturerState("CA");
+//        manu3.setManufacturerZipCode("5005");
+//        manu3.setManufacturerPhone("333-333-3333");
+//        manu3.setManufacturerContact("Guy");
     }
 
     @Test
@@ -126,7 +124,7 @@ public class accessoriesDaoTest {
         accessoriesList.add(access4);
         accessoriesList.add(access5);
 
-        List<accessories> fromRepo = accessRepo.getAllAccessories();
+        List<accessories> fromRepo = accessRepo.findAllAccessories();
 
         assertEquals(accessoriesList, fromRepo);
 
@@ -153,7 +151,7 @@ public class accessoriesDaoTest {
         access5.setManu(manu3);
         accessRepo.save(access5);
 
-        List<accessories> accessQuantityList = accessRepo.findByQuantity(access1.getAccessoriesQuantity());
+        List<accessories> accessQuantityList = accessRepo.findByAccessoriesQuantity(access1.getAccessoriesQuantity());
 
         assertEquals(access1, accessQuantityList.get(0));
     }
@@ -253,7 +251,7 @@ public class accessoriesDaoTest {
         access5.setManu(manu3);
         accessRepo.save(access5);
 
-        List<accessories> accessNameList = accessRepo.findByName(access3.getAccessoriesName());
+        List<accessories> accessNameList = accessRepo.findByAccessoriesName(access3.getAccessoriesName());
 
         assertEquals("earrings", accessNameList.get(2));
     }
@@ -279,7 +277,7 @@ public class accessoriesDaoTest {
         access5.setManu(manu3);
         accessRepo.save(access5);
 
-        List<accessories> accessPriceList = accessRepo.findByPrice(access2.getAccessoriesPrice());
+        List<accessories> accessPriceList = accessRepo.findByAccessoriesPrice(access2.getAccessoriesPrice());
 
         assertEquals(access2, accessPriceList.get(1));
     }
@@ -305,7 +303,7 @@ public class accessoriesDaoTest {
         access5.setManu(manu3);
         accessRepo.save(access5);
 
-        List<accessories> accessRatingList = accessRepo.findByRating(access3.getAccessoriesRating());
+        List<accessories> accessRatingList = accessRepo.findByAccessoriesRating(access3.getAccessoriesRating());
 
         assertEquals(access3, accessRatingList.get(2));
     }
@@ -378,11 +376,11 @@ public class accessoriesDaoTest {
     }
 
 
-    @After
-    public void tearDown() {
-        accessRepo.deleteAll();
-        manuRepo.deleteAll();
-    }
+//    @After
+//    public void tearDown() {
+//        accessRepo.deleteAll();
+//        manuRepo.deleteAll();
+//    }
 
 
 }

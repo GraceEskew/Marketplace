@@ -18,8 +18,8 @@ import java.util.Optional;
 
 import static org.junit.Assert.*;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 
 public class apparelDaoTest {
 
@@ -40,7 +40,7 @@ public class apparelDaoTest {
 
     @Before
     public void setUp() {
-        apparelRepo.deleteAll();
+       //apparelRepo.deleteAll();
        // manuRepo.deleteAll();
 
         app1 = new apparel();
@@ -102,13 +102,17 @@ public class apparelDaoTest {
 
     @Test
     @Transactional
-        public void shouldGetAllApparel() {
+        public void shouldFindAllApparel() {
         apparelRepo.save(app1);
         apparelRepo.save(app2);
+
         List<apparel> apparelList = new ArrayList<>();
         apparelList.add(app1);
         apparelList.add(app2);
 
+        List<apparel> fromRepo = apparelRepo.findAllApparel();
+
+        assertEquals(apparelList, fromRepo);
     }
 
     @Test
@@ -130,7 +134,7 @@ public class apparelDaoTest {
 
         apparelRepo.deleteById(app1.getApparelId());
 
-        Optional<apparel> fromRepo = apparelRepo.findById(app1.getApparelId());
+        Optional<apparel> fromRepo = apparelRepo.findByApparelId(app1.getApparelId());
 
         assertFalse(fromRepo.isPresent());
     }
@@ -144,7 +148,7 @@ public class apparelDaoTest {
         apparelRepo.save(app4);
         apparelRepo.save(app5);
 
-        List<apparel> apparelNameList = apparelRepo.findByName(app3.getApparelName());
+        List<apparel> apparelNameList = apparelRepo.findByApparelName(app3.getApparelName());
 
         assertEquals("Dress", apparelNameList.get(2));
 
@@ -159,7 +163,7 @@ public class apparelDaoTest {
         apparelRepo.save(app4);
         apparelRepo.save(app5);
 
-        List<apparel> apparelPriceList = apparelRepo.findByPrice(app2.getApparelPrice());
+        List<apparel> apparelPriceList = apparelRepo.findByApparelPrice(app2.getApparelPrice());
 
         assertEquals(10.99, apparelPriceList.get(1));
 
@@ -174,7 +178,7 @@ public class apparelDaoTest {
         apparelRepo.save(app4);
         apparelRepo.save(app5);
 
-        List<apparel> apparelRatingList = apparelRepo.findByRating(app1.getApparelRating());
+        List<apparel> apparelRatingList = apparelRepo.findByApparelRating(app1.getApparelRating());
 
         assertEquals(1, apparelRatingList.get(0));
     }
@@ -188,15 +192,15 @@ public class apparelDaoTest {
         apparelRepo.save(app4);
         apparelRepo.save(app5);
 
-        List<apparel> apparelQuantityList = apparelRepo.findByQuantity(app5.getApparelQuantity());
+        List<apparel> apparelQuantityList = apparelRepo.findByApparelQuantity(app5.getApparelQuantity());
 
         assertEquals(1, apparelQuantityList.get(4));
     }
 
-    @After
-    public void tearDown() {
-        apparelRepo.deleteAll();
-    }
+//    @After
+//    public void tearDown() {
+//       apparelRepo.deleteAll();
+//    }
 
 }
 

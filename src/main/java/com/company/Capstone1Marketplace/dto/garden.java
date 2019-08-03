@@ -1,9 +1,7 @@
 package com.company.Capstone1Marketplace.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.data.annotation.Id;
 
-import javax.naming.InsufficientResourcesException;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;

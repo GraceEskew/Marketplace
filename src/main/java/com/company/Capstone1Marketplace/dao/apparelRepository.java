@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface apparelRepository extends JpaRepository<apparel, Integer> {
-    List<apparel> getAllApparel();
-    List<apparel> findByName(String apparelName);
-    List<apparel> findByPrice(Double apparelPrice);
-    List<apparel> findByRating(Integer apparelRating);
-    List<apparel> findByQuantity(Integer apparelQuantity);
+    List<apparel> findAllApparel();
+    List<apparel> findByApparelName(String apparelName);
+    List<apparel> findByApparelPrice(Double apparelPrice);
+    List<apparel> findByApparelRating(Integer apparelRating);
+    List<apparel> findByApparelQuantity(Integer apparelQuantity);
 }

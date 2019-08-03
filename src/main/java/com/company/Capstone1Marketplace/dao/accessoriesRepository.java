@@ -7,11 +7,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface accessoriesRepository extends JpaRepository<accessories, Integer> {
-    List<accessories> getAllAccessories();
-    List<accessories> findByName(String accessoriesName);
-    List<accessories> findByPrice(Double accessoriesPrice);
-    List<accessories> findByRating(Integer accessoriesRating);
+    List<accessories> findAllAccessories();
+    List<accessories> findByAccessoriesName(String accessoriesName);
+    List<accessories> findByAccessoriesPrice(Double accessoriesPrice);
+    List<accessories> findByAccessoriesRating(Integer accessoriesRating);
     //List<accessories> findByManufacturerName(manufacturer manu);
-    List<accessories> findByQuantity(Integer accessoriesQuantity);
+    List<accessories> findByAccessoriesQuantity(Integer accessoriesQuantity);
 
 }
