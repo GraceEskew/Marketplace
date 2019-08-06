@@ -18,25 +18,22 @@ public class shoes {
     private Integer shoesId;
 
     @NotNull
-    @NotEmpty
+
     private String shoesName;
 
     @NotNull
-    @NotEmpty
     private Double shoesPrice;
 
     @NotNull
-    @NotEmpty
     private Integer shoesQuantity;
 
     @NotNull
-    @NotEmpty
     @Size(min=1, max=1, message="Rating must be exactly 1 digit")
     private Integer shoesRating;
 
-    @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="manufacturerId")
-    private manufacturer manu;
+//    @ManyToOne(fetch=FetchType.EAGER)
+//    @JoinColumn(name="manufacturerId")
+//    private manufacturer manu;
 
 
     //GETSET
@@ -56,6 +53,6 @@ public class shoes {
     public Integer getShoesRating() {return this.shoesRating;}
     public void setShoesRating(Integer shoesRating) {this.shoesRating = shoesRating;}
 
-    public manufacturer getManu() {return this.manu;}
-    public void setManu(manufacturer manu) {this.manu = manu;}
+//    public manufacturer getManu() {return this.manu;}
+//    public void setManu(manufacturer manu) {this.manu = manu;}
 }

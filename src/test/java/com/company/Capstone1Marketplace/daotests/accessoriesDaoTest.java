@@ -98,40 +98,6 @@ public class accessoriesDaoTest {
 
     @Test
     @Transactional
-    public void shouldGetAccessories() {
-        manuRepo.save(manu1);
-        access1.setManu(manu1);
-        accessRepo.save(access1);
-
-        access2.setManu(manu1);
-        accessRepo.save(access2);
-
-        manuRepo.save(manu2);
-        access3.setManu(manu2);
-        accessRepo.save(access3);
-
-        access4.setManu(manu2);
-        accessRepo.save(access4);
-
-        manuRepo.save(manu3);
-        access5.setManu(manu3);
-        accessRepo.save(access5);
-
-        List<accessories> accessoriesList = new ArrayList<>();
-        accessoriesList.add(access1);
-        accessoriesList.add(access2);
-        accessoriesList.add(access3);
-        accessoriesList.add(access4);
-        accessoriesList.add(access5);
-
-        List<accessories> fromRepo = accessRepo.findAllAccessories();
-
-        assertEquals(accessoriesList, fromRepo);
-
-    }
-
-    @Test
-    @Transactional
     public void shouldGetAccessoriesByQuantity() {
         manuRepo.save(manu1);
         access1.setManu(manu1);
@@ -367,12 +333,6 @@ public class accessoriesDaoTest {
         accessoriesList.add(access4);
         accessoriesList.add(access5);
 
-
-        //In service, maybe?
-       /* return accessoriesList
-                .stream()
-                .filter(accessories -> accessories.getAccessoriesRating() <= 5)
-                .collect(Collectors.toList()); */
     }
 
 

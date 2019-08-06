@@ -3,10 +3,8 @@ package com.company.Capstone1Marketplace.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
@@ -18,19 +16,15 @@ public class apparel {
     private Integer apparelId;
 
     @NotNull
-    @NotEmpty
     private String apparelName;
 
     @NotNull
-    @NotEmpty
     private Double apparelPrice;
 
     @NotNull
-    @NotEmpty
     private Integer apparelQuantity;
 
     @NotNull
-    @NotEmpty
     @Size(min=1, max=1, message="Rating must be exactly 1 digit")
     private Integer apparelRating;
 

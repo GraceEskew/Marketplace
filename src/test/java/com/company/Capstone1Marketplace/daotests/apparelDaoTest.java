@@ -12,14 +12,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
 
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
+@RunWith(SpringRunner.class)
+@SpringBootTest
 
 public class apparelDaoTest {
 
@@ -102,21 +101,6 @@ public class apparelDaoTest {
 
     @Test
     @Transactional
-        public void shouldFindAllApparel() {
-        apparelRepo.save(app1);
-        apparelRepo.save(app2);
-
-        List<apparel> apparelList = new ArrayList<>();
-        apparelList.add(app1);
-        apparelList.add(app2);
-
-        List<apparel> fromRepo = apparelRepo.findAllApparel();
-
-        assertEquals(apparelList, fromRepo);
-    }
-
-    @Test
-    @Transactional
     public void shouldAddApparel() {
         apparelRepo.save(app1);
 
@@ -134,7 +118,7 @@ public class apparelDaoTest {
 
         apparelRepo.deleteById(app1.getApparelId());
 
-        Optional<apparel> fromRepo = apparelRepo.findByApparelId(app1.getApparelId());
+        Optional<apparel> fromRepo = apparelRepo.findById(app1.getApparelId());
 
         assertFalse(fromRepo.isPresent());
     }
@@ -145,13 +129,10 @@ public class apparelDaoTest {
         apparelRepo.save(app1);
         apparelRepo.save(app2);
         apparelRepo.save(app3);
-        apparelRepo.save(app4);
-        apparelRepo.save(app5);
 
         List<apparel> apparelNameList = apparelRepo.findByApparelName(app3.getApparelName());
 
-        assertEquals("Dress", apparelNameList.get(2));
-
+        assertEquals(app3, apparelNameList.get(2));
     }
 
     @Test
@@ -180,7 +161,8 @@ public class apparelDaoTest {
 
         List<apparel> apparelRatingList = apparelRepo.findByApparelRating(app1.getApparelRating());
 
-        assertEquals(1, apparelRatingList.get(0));
+        assertSame(app1, apparelRatingList.get(0));
+
     }
 
     @Test

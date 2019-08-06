@@ -11,32 +11,21 @@ import javax.validation.constraints.Size;
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 @Table(name = "accessories")
 
-/*
-* Look into OneToMany, Join Table
-*
-*
-* */
-
-
 public class accessories {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer accessoriesId;
 
     @NotNull
-    @NotEmpty
     private String accessoriesName;
 
     @NotNull
-    @NotEmpty
     private Double accessoriesPrice;
 
     @NotNull
-    @NotEmpty
     private Integer accessoriesQuantity;
 
     @NotNull
-    @NotEmpty
     @Size(min=1, max=1, message="Rating must be exactly 1 digit")
     private Integer accessoriesRating;
 

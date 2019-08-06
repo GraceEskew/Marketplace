@@ -3,7 +3,6 @@ package com.company.Capstone1Marketplace.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -18,25 +17,21 @@ public class garden {
     private Integer gardenId;
 
     @NotNull
-    @NotEmpty
     private String gardenName;
 
     @NotNull
-    @NotEmpty
     private Double gardenPrice;
 
     @NotNull
-    @NotEmpty
     private Integer gardenQuantity;
 
     @NotNull
-    @NotEmpty
     @Size(min=1, max=1, message="Rating must be exactly 1 digit")
     private Integer gardenRating;
 
-    @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="manufacturerId")
-    private manufacturer manu;
+//    @ManyToOne(fetch=FetchType.EAGER)
+//    @JoinColumn(name="manufacturerId")
+//    private manufacturer manu;
 
 
     //GETSET
@@ -56,6 +51,6 @@ public class garden {
     public Integer getGardenRating() {return this.gardenRating;}
     public void setGardenRating(Integer gardenRating) {this.gardenRating = gardenRating;}
 
-    public manufacturer getManu() {return this.manu;}
-    public void setManu(manufacturer manu) {this.manu = manu;}
+//    public manufacturer getManu() {return this.manu;}
+//    public void setManu(manufacturer manu) {this.manu = manu;}
 }

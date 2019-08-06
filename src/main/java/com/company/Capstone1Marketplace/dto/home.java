@@ -18,25 +18,21 @@ public class home {
     private Integer homeId;
 
     @NotNull
-    @NotEmpty
     private String homeName;
 
     @NotNull
-    @NotEmpty
     private Double homePrice;
 
     @NotNull
-    @NotEmpty
     private Integer homeQuantity;
 
     @NotNull
-    @NotEmpty
     @Size(min=1, max=1, message="Rating must be exactly 1 digit")
     private Integer homeRating;
 
-    @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="manufacturerId")
-    private manufacturer manu;
+//    @ManyToOne(fetch=FetchType.EAGER)
+//    @JoinColumn(name="manufacturerId")
+//    private manufacturer manu;
 
 
     //GETSET
@@ -56,6 +52,6 @@ public class home {
     public Integer getHomeRating() {return this.homeRating;}
     public void setHomeRating(Integer homeRating) {this.homeRating = homeRating;}
 
-    public manufacturer getManu() {return this.manu;}
-    public void setManu(manufacturer manu) {this.manu = manu;}
+//    public manufacturer getManu() {return this.manu;}
+//    public void setManu(manufacturer manu) {this.manu = manu;}
 }
