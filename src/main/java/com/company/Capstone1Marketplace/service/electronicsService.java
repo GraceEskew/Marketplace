@@ -19,6 +19,8 @@ public class electronicsService {
         return elecRepo.save(electronics);
     }
 
+    public List<electronics> getAllElectronics() { return elecRepo.findAll();}
+
     public electronics getElectronicsById(Integer electronicsId) {
         return elecRepo.getOne(electronicsId);
     }

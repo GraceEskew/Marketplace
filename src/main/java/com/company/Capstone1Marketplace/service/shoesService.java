@@ -32,6 +32,10 @@ public class shoesService {
         shoesRepo.deleteById(shoesId);
     }
 
+    //GET ALL SHOES
+    public List<shoes> getAllShoes() {return shoesRepo.findAll();}
+
+
     //SHOES BY ID
     public shoes getShoesById(Integer shoesId) {
         return shoesRepo.getOne(shoesId);

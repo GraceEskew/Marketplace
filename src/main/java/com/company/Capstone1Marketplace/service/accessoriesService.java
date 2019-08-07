@@ -13,6 +13,8 @@ import java.util.stream.Collectors;
 @Component
 public class accessoriesService {
 
+
+    // SERVICE LINKS TO CONTROLLER
     @Autowired
     accessoriesRepository accessoriesRepo;
 

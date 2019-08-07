@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 @Component
 public class apparelService {
 
+
+    // SERVICE LINKS TO CONTROLLER
     @Autowired
     private apparelRepository apparelRepo;
 
@@ -19,9 +21,7 @@ public class apparelService {
         return apparelRepo.save(apparel);
     }
 
-//    public List<apparel> getAllApparel() {
-//        return apparelRepo.findAll();
-//    }
+    public List<apparel> getAllAccessories() { return apparelRepo.findAll();}
 
     public apparel getApparelById(Integer apparelId) {return apparelRepo.getOne(apparelId);}
 
@@ -37,8 +37,12 @@ public class apparelService {
         return apparelRepo.findByApparelRating(apparelRating);
     }
 
+    public List<apparel> getApparelByPrice(Double apparelPrice) {
+        return apparelRepo.findByApparelPrice(apparelPrice);
+    }
+
     // APPAREL RATED ABOVE 4
-    public List<apparel> geApparelRatedAbove4(Integer apparelRating) {
+    public List<apparel> getApparelRatedAbove4(Integer apparelRating) {
         List<apparel> appList = apparelRepo.findByApparelRating(apparelRating)
                 .stream()
                 .filter(apparel -> apparel.getApparelRating() > 4)

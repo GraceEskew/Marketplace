@@ -18,11 +18,13 @@ public class beautyService {
     public beauty addBeauty(beauty beauty) {
         return beautyRepo.save(beauty);}
 
-   // public List<beauty> getAllBeauty() {return beautyRepo.findAll();}
+    public List<beauty> getAllBeauty() {return beautyRepo.findAll();}
 
     public beauty getBeautyById(Integer beautyId) {return beautyRepo.getOne(beautyId);}
 
     public List<beauty> getBeautyByName(String beautyName) {return beautyRepo.findByBeautyName(beautyName);}
+
+    public List<beauty> getBeautyByPrice(Double beautyPrice){return beautyRepo.findByBeautyPrice(beautyPrice);}
 
     public List<beauty> getBeautyByQuantity(Integer beautyQuantity) {return beautyRepo.findByBeautyQuantity(beautyQuantity);}
 

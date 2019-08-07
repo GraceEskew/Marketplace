@@ -19,6 +19,8 @@ public class gardensService {
         return gardenRepo.save(gar);
     }
 
+    public List<garden> getAllGardens() { return gardenRepo.findAll();}
+
     public garden getGardenById(Integer gardenId){
         return gardenRepo.getOne(gardenId);
     }
@@ -27,15 +29,15 @@ public class gardensService {
         return gardenRepo.findByGardenName(gardenName);
     }
 
-    public List<garden> findGardenByPrice(Double gardenPrice) {
+    public List<garden> getGardenByPrice (Double gardenPrice) {
         return gardenRepo.findByGardenPrice(gardenPrice);
     }
 
-    public List<garden> findGardenByQuantity(Integer gardenQuantity) {
+    public List<garden> getGardenByQuantity(Integer gardenQuantity) {
         return gardenRepo.findByGardenQuantity(gardenQuantity);
     }
 
-    public List<garden> findGardenByRating(Integer gardenRating) {
+    public List<garden> getGardenByRating(Integer gardenRating) {
 
         return gardenRepo.findByGardenRating(gardenRating);
     }

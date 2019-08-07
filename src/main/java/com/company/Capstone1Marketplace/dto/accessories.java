@@ -29,6 +29,9 @@ public class accessories {
     @Size(min=1, max=1, message="Rating must be exactly 1 digit")
     private Integer accessoriesRating;
 
+
+    //JOIN - THINKING OF REMOVING THE JOIN HERE, AND IMPLEMENTING IT ONCE I HAVE THE INVOICE CLASS BUILT TO HELP
+    // LINK MANUFACTURER INFORMATION TO PRODUCTS & INVOICES
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="manufacturerId")
     private manufacturer manu;
@@ -52,9 +55,11 @@ public class accessories {
     public manufacturer getManu() {return this.manu;}
     public void setManu(manufacturer manu) {this.manu = manu;}
 
-
-
-
-
-
 }
+
+/*Notes__________________
+ * 1. Likely will retool to have manufacturer data linked with products and invoices. Next time - need to manage time better.
+ *      Initial DAO Tests  ate a lot of useful time.
+ *
+ *
+ * */

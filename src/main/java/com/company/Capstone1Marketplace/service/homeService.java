@@ -19,6 +19,9 @@ public class homeService {
         return homeRepo.save(home);
     }
 
+    public List<home> getAllHome() { return homeRepo.findAll();}
+
+
     public home getHomeById(Integer homeId) {
         return homeRepo.getOne(homeId);
     }
